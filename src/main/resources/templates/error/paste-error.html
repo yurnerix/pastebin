@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Ошибка</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="container error-page">
+    <div class="error-icon">⏳</div>
+
+    <h1 th:text="${title}">Paste недоступен</h1>
+
+    <p class="error-description" th:text="${message}">
+        Срок действия paste истёк
+    </p>
+
+    <p class="error-code">
+        Код ошибки:
+        <span th:text="${status}">410</span>
+    </p>
+
+    <div class="nav">
+        <a class="button" th:href="@{/pastes/new}">Создать новый paste</a>
+        <a class="button secondary" th:href="@{/me/pastes}">Мои paste</a>
+        <a class="button secondary" th:href="@{/}">На главную</a>
+    </div>
+</div>
+</body>
+</html>

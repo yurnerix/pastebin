@@ -1,0 +1,35 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: pastebin-postgres
+    environment:
+      POSTGRES_DB: pastebin_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: asterisk
+    ports:
+      - "5433:5432"
+    volumes:
+      - pastebin_postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d pastebin_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: pastebin-redis
+    ports:
+      - "6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - pastebin_redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pastebin_postgres_data:
+  pastebin_redis_data:

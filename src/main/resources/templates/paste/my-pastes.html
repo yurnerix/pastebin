@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Мои paste</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Мои paste</h1>
+
+    <div class="nav">
+        <form th:action="@{/me/pastes/delete-expired}" method="post" class="inline-form">
+            <button type="submit" class="button danger">
+                Удалить истёкшие paste
+            </button>
+        </form>
+
+        <a class="button secondary" th:href="@{/pastes/new}">Создать paste</a>
+        <a class="button secondary" th:href="@{/}">На главную</a>
+    </div>
+
+    <div th:if="${#lists.isEmpty(pastes)}">
+        <p>У тебя пока нет созданных paste.</p>
+        <a class="button" th:href="@{/pastes/new}">Создать первый paste</a>
+    </div>
+
+    <div th:if="${!#lists.isEmpty(pastes)}">
+        <div class="paste-card" th:each="paste : ${pastes}">
+            <div class="paste-card-header">
+                <h2 th:text="${paste.title() != null and !paste.title().isBlank() ? paste.title() : 'Без названия'}">
+                    Название paste
+                </h2>
+
+                <span class="badge active-badge" th:if="${paste.expired() == false}">
+                    Активен
+                </span>
+
+                <span class="badge expired-badge" th:if="${paste.expired()}">
+                    Истёк
+                </span>
+            </div>
+
+            <p>
+                Hash:
+                <span th:text="${paste.hash()}"></span>
+            </p>
+
+            <p>
+                Просмотры:
+                <span th:text="${paste.viewsCount()}"></span>
+            </p>
+
+            <p>
+                Истекает:
+                <span th:text="${paste.expiresAt() != null ? paste.expiresAt() : 'Никогда'}"></span>
+            </p>
+
+            <div class="paste-actions">
+                <a class="button"
+                   th:if="${paste.expired() == false}"
+                   th:href="@{'/p/' + ${paste.hash()}}">
+                    Открыть
+                </a>
+
+                <button class="button disabled-button"
+                        th:if="${paste.expired()}"
+                        disabled>
+                    Недоступен
+                </button>
+
+                <form th:action="@{'/me/pastes/' + ${paste.hash()} + '/delete'}"
+                      method="post"
+                      class="inline-form">
+                    <button type="submit" class="button danger">
+                        Удалить
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

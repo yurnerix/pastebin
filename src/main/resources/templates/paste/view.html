@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${paste.title() != null ? paste.title() : 'Paste'}">Paste</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${paste.title() != null && !paste.title().isBlank() ? paste.title() : 'Без названия'}">
+        Paste
+    </h1>
+
+    <div class="meta">
+        <p>
+            Hash:
+            <span th:text="${paste.hash()}"></span>
+        </p>
+
+        <p>
+            Просмотры:
+            <span th:text="${paste.viewsCount()}"></span>
+        </p>
+
+        <p>
+            Создан:
+            <span th:text="${paste.createdAt()}"></span>
+        </p>
+
+        <p>
+            Истекает:
+            <span th:text="${paste.expiresAt() != null ? paste.expiresAt() : 'Никогда'}"></span>
+        </p>
+    </div>
+
+    <pre th:text="${paste.content()}"></pre>
+
+    <a th:href="@{/pastes/new}">Создать ещё</a>
+</div>
+</body>
+</html>

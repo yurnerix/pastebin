@@ -1,0 +1,255 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 900px;
+    max-width: 90%;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+label {
+    display: block;
+    margin-top: 16px;
+    font-weight: bold;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 6px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button,
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #222;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover,
+.button:hover {
+    background: #444;
+}
+
+.checkbox {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.checkbox input {
+    width: auto;
+}
+
+pre {
+    background: #eeeeee;
+    padding: 20px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.meta {
+    color: #555;
+    font-size: 14px;
+}
+
+.error-box {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff3f3;
+    border: 1px solid #ffcccc;
+    border-radius: 8px;
+}
+
+.error-status {
+    font-weight: bold;
+    color: #b00020;
+}
+
+.link {
+    display: inline-block;
+    margin-left: 12px;
+}
+
+.success-box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #f0fff3;
+    border: 1px solid #b7e4c7;
+    border-radius: 8px;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.nav .button {
+    margin-top: 0;
+}
+
+.secondary {
+    background: #666;
+}
+
+.secondary:hover {
+    background: #777;
+}
+
+.logout-form {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+}
+
+.logout-form button {
+    margin-top: 0;
+}
+
+.paste-card {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.paste-card h2 {
+    margin-top: 0;
+}
+
+.bottom-nav {
+    margin-top: 24px;
+}
+
+.paste-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.badge {
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.active-badge {
+    background: #e8f7ee;
+    color: #16803c;
+}
+
+.expired-badge {
+    background: #fff0f0;
+    color: #b00020;
+}
+
+.disabled-button {
+    background: #999;
+    cursor: not-allowed;
+}
+
+.disabled-button:hover {
+    background: #999;
+}
+
+.error-page {
+    text-align: center;
+}
+
+.error-icon {
+    font-size: 56px;
+    margin-bottom: 16px;
+}
+
+.error-description {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #333;
+}
+
+.error-code {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 8px 14px;
+    background: #f5f5f5;
+    border-radius: 999px;
+    color: #666;
+}
+
+.paste-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.paste-actions .button {
+    box-sizing: border-box;
+    height: 44px;
+    min-width: 92px;
+    margin: 0;
+    padding: 0 18px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    line-height: 1;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.inline-form {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+}
+
+.inline-form button {
+    margin: 0;
+}
+
+.danger {
+    background: #b00020;
+}
+
+.danger:hover {
+    background: #8a0018;
+}
+

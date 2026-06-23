@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать Paste</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Создать Paste</h1>
+
+    <form th:action="@{/pastes}" method="post">
+        <label for="title">Заголовок</label>
+        <input id="title" type="text" name="title" placeholder="Например: Java notes">
+
+        <label for="content">Текст</label>
+        <textarea id="content" name="content" rows="15" required placeholder="Введите текст..."></textarea>
+
+        <label for="expirationTime">Время жизни</label>
+        <select id="expirationTime" name="expirationTime" required>
+            <option th:each="type : ${expirationTypes}"
+                    th:value="${type}"
+                    th:text="${type}">
+            </option>
+        </select>
+
+        <label class="checkbox">
+            <input type="checkbox" name="isPrivate" value="true">
+            Приватный paste
+        </label>
+
+        <button type="submit">Создать</button>
+    </form>
+
+    <a th:href="@{/}">На главную</a>
+</div>
+</body>
+</html>

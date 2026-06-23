@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Pastebin</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Pastebin</h1>
+
+    <p>Создавай текстовые блоки и делись короткой ссылкой.</p>
+
+    <div class="nav">
+        <a class="button" th:href="@{/pastes/new}">Создать paste</a>
+
+        <a sec:authorize="isAuthenticated()"
+           class="button secondary"
+           th:href="@{/me/pastes}">
+            Мои paste
+        </a>
+
+        <a sec:authorize="isAnonymous()"
+           class="button secondary"
+           th:href="@{/register}">
+            Регистрация
+        </a>
+
+        <a sec:authorize="isAnonymous()"
+           class="button secondary"
+           th:href="@{/login}">
+            Войти
+        </a>
+
+        <form sec:authorize="isAuthenticated()"
+              th:action="@{/logout}"
+              method="post"
+              class="logout-form">
+            <button type="submit" class="button secondary">Выйти</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
